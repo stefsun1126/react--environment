@@ -7,7 +7,7 @@
     6.css兼容性
     7.eslint (缺)
     8.devServer
-    9.HMR (缺)
+    9.HMR
 */
 
 const { resolve } = require('path');
@@ -28,6 +28,7 @@ module.exports = {
         // 處理less資源
         test: /\.less$/,
         use: [
+          'css-hot-loader',
           // 從JS提取CSS成單獨文件，再額外引入html
           MiniCssExtractPlugin.loader,
           'css-loader',
@@ -49,6 +50,7 @@ module.exports = {
         // 處理css資源
         test: /\.css$/,
         use: [
+          'css-hot-loader',
           // 從JS提取CSS成單獨文件，再額外引入html
           MiniCssExtractPlugin.loader,
           'css-loader',
@@ -117,5 +119,6 @@ module.exports = {
     compress: true,
     port: 3000,
     open: true,
+    hot: true,
   },
 };
