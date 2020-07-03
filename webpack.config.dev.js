@@ -100,6 +100,18 @@ module.exports = {
         exclude: /node_modules/,
         loader: 'babel-loader',
       },
+      {
+        test: /\.(js|jsx)$/,
+        // 注意：只檢查自己的代碼就好，所以要把node_modules除外
+        exclude: /node_modules/,
+        loader: 'eslint-loader',
+        // 優先執行
+        enforce: 'pre',
+        options: {
+          // 自動修復eslint的錯誤(警告還是會有)
+          fix: true,
+        },
+      },
     ],
   },
   plugins: [
