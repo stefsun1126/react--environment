@@ -5,9 +5,10 @@
     4.配置靜態其他資源 (icon font ..)
     5.js兼容性
     6.css兼容性
-    7.eslint (缺)
+    7.eslint
     8.devServer
     9.HMR
+    10.source map
 */
 
 const { resolve } = require('path');
@@ -15,6 +16,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin'); // 從js提取css為一個獨立檔案
 
 module.exports = {
+  devtool: 'eval-source-map',
   entry: './src/index.js',
   resolve: { extensions: ['*', '.js', '.jsx'] },
   output: {
